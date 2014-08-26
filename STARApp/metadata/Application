@@ -1,0 +1,19 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "Account"
+        ],
+        "name": "STARApp",
+        "views": [
+            "LoginForm",
+            "MainPage"
+        ]
+    },
+    "designerId": "application"
+}

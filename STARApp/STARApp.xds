@@ -1,0 +1,61 @@
+{
+    "name": "STARApp",
+    "settings": {
+        "cmd": {
+            "license": "commercial",
+            "cmdVersion": "4.0.4.84",
+            "frameworkVersion": "2.3.1.410"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "iPhone",
+                "builtIn": true,
+                "height": 480,
+                "width": 320
+            },
+            "viewportOrientation": "portrait"
+        },
+        "urlPrefix": "http://localhost:7000/STARApp",
+        "exportPath": "C:/inetpub/wwwroot/STARApp",
+        "spacesToIndent": 4,
+        "sdkPath": "",
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true,
+        "generateArchitectVersion": true,
+        "lastBuildSelection": {
+            "value": "webBuild",
+            "display": "Build web app"
+        },
+        "displayfield-ExtBox1-1332-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1382-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1432-inputEl": "Not Installed",
+        "displayfield-ExtBox1-1482-inputEl": "Not Installed"
+    },
+    "xdsVersion": "3.0.4",
+    "xdsBuild": 1386,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000004,
+    "framework": "touch23",
+    "viewOrderMap": {
+        "view": [
+            "0ae0acd3-1fb1-4e63-8533-2c439998acde",
+            "e85c09b6-ffac-4fa7-907d-a147e0557b6c",
+            "493966d8-4c68-4524-a8e3-cf7959922117"
+        ],
+        "store": [],
+        "controller": [
+            "2b2edcc9-aa68-4e7d-8ac3-f64f316af5b9"
+        ],
+        "model": [],
+        "resource": [
+            "a95a0acb-047c-4e9b-b307-b80a5506941d",
+            "49e5177f-a590-4683-b5ed-b3548a09a92e",
+            "db6bed50-670c-43c2-a874-a3eccf7484b6"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}
