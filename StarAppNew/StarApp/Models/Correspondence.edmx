@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CorrespondenceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9AA20E_db2.dbo.Correspondence' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Correspondence">
+          <Key>
+            <PropertyRef Name="correspondenceid" />
+            <PropertyRef Name="awardnum" />
+            <PropertyRef Name="grantyear" />
+            <PropertyRef Name="announcementnum" />
+            <PropertyRef Name="completed" />
+            <PropertyRef Name="IsResearch" />
+          </Key>
+          <Property Name="correspondenceid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="correspondencetypeid" Type="int" />
+          <Property Name="awardnum" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="grantyear" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="announcementnum" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="grantspecialistid" Type="int" />
+          <Property Name="grantsmgmtofficerid" Type="int" />
+          <Property Name="projectofficer" Type="varchar" MaxLength="250" />
+          <Property Name="amountrequested" Type="money" />
+          <Property Name="dateentered" Type="datetime" />
+          <Property Name="dateofgranteeletter" Type="datetime" />
+          <Property Name="datereceivedpgo" Type="datetime" />
+          <Property Name="datereceiveddiv" Type="datetime" />
+          <Property Name="dateduefromdiv" Type="datetime" />
+          <Property Name="datecompleted" Type="datetime" />
+          <Property Name="dateofresponsetograntee" Type="datetime" />
+          <Property Name="completed" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="15daytarget" Type="datetime" />
+          <Property Name="30daytarget" Type="datetime" />
+          <Property Name="cioid" Type="int" />
+          <Property Name="divisionid" Type="int" />
+          <Property Name="granteename" Type="varchar" MaxLength="250" />
+          <Property Name="archived" Type="bit" />
+          <Property Name="LeadBranchID" Type="int" />
+          <Property Name="DateRoutedHolder" Type="date" />
+          <Property Name="IsResearch" Type="bit" Nullable="false" />
+          <Property Name="DateDueToPGO" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9AA20E_db2.dbo.CorrespondenceType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CorrespondenceType">
+          <Key>
+            <PropertyRef Name="correspondencetypeid" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="pgoonly" />
+          </Key>
+          <Property Name="correspondencetypeid" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pgoonly" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DB_9AA20E_db2.dbo.CorrItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CorrItem">
+          <Key>
+            <PropertyRef Name="corritemid" />
+            <PropertyRef Name="correspondenceid" />
+            <PropertyRef Name="correspondencetypeid" />
+            <PropertyRef Name="responserequired" />
+            <PropertyRef Name="hascurrentrecommendation" />
+            <PropertyRef Name="hascurrentapproval" />
+          </Key>
+          <Property Name="corritemid" Type="int" Nullable="false" />
+          <Property Name="correspondenceid" Type="int" Nullable="false" />
+          <Property Name="correspondencetypeid" Type="int" Nullable="false" />
+          <Property Name="responsiblebranchid" Type="int" />
+          <Property Name="branchcontact" Type="int" />
+          <Property Name="amtreq1" Type="money" />
+          <Property Name="responserequired" Type="bit" Nullable="false" />
+          <Property Name="approverejectstatus" Type="char" MaxLength="1" />
+          <Property Name="corritemdescription" Type="varchar" MaxLength="250" />
+          <Property Name="approverid" Type="int" />
+          <Property Name="status" Type="char" MaxLength="1" />
+          <Property Name="hascurrentrecommendation" Type="bit" Nullable="false" />
+          <Property Name="hascurrentapproval" Type="bit" Nullable="false" />
+          <Property Name="amtrecommended" Type="money" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="CorrespondenceModelStoreContainer">
+          <EntitySet Name="Correspondence" EntityType="Self.Correspondence" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Correspondence].[correspondenceid] AS [correspondenceid], 
+[Correspondence].[correspondencetypeid] AS [correspondencetypeid], 
+[Correspondence].[awardnum] AS [awardnum], 
+[Correspondence].[grantyear] AS [grantyear], 
+[Correspondence].[announcementnum] AS [announcementnum], 
+[Correspondence].[grantspecialistid] AS [grantspecialistid], 
+[Correspondence].[grantsmgmtofficerid] AS [grantsmgmtofficerid], 
+[Correspondence].[projectofficer] AS [projectofficer], 
+[Correspondence].[amountrequested] AS [amountrequested], 
+[Correspondence].[dateentered] AS [dateentered], 
+[Correspondence].[dateofgranteeletter] AS [dateofgranteeletter], 
+[Correspondence].[datereceivedpgo] AS [datereceivedpgo], 
+[Correspondence].[datereceiveddiv] AS [datereceiveddiv], 
+[Correspondence].[dateduefromdiv] AS [dateduefromdiv], 
+[Correspondence].[datecompleted] AS [datecompleted], 
+[Correspondence].[dateofresponsetograntee] AS [dateofresponsetograntee], 
+[Correspondence].[completed] AS [completed], 
+[Correspondence].[15daytarget] AS [15daytarget], 
+[Correspondence].[30daytarget] AS [30daytarget], 
+[Correspondence].[cioid] AS [cioid], 
+[Correspondence].[divisionid] AS [divisionid], 
+[Correspondence].[granteename] AS [granteename], 
+[Correspondence].[archived] AS [archived], 
+[Correspondence].[LeadBranchID] AS [LeadBranchID], 
+[Correspondence].[DateRoutedHolder] AS [DateRoutedHolder], 
+[Correspondence].[IsResearch] AS [IsResearch], 
+[Correspondence].[DateDueToPGO] AS [DateDueToPGO]
+FROM [dbo].[Correspondence] AS [Correspondence]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CorrespondenceType" EntityType="Self.CorrespondenceType" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[CorrespondenceType].[correspondencetypeid] AS [correspondencetypeid], 
+[CorrespondenceType].[description] AS [description], 
+[CorrespondenceType].[pgoonly] AS [pgoonly]
+FROM [dbo].[CorrespondenceType] AS [CorrespondenceType]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CorrItem" EntityType="Self.CorrItem" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[CorrItem].[corritemid] AS [corritemid], 
+[CorrItem].[correspondenceid] AS [correspondenceid], 
+[CorrItem].[correspondencetypeid] AS [correspondencetypeid], 
+[CorrItem].[responsiblebranchid] AS [responsiblebranchid], 
+[CorrItem].[branchcontact] AS [branchcontact], 
+[CorrItem].[amtreq1] AS [amtreq1], 
+[CorrItem].[responserequired] AS [responserequired], 
+[CorrItem].[approverejectstatus] AS [approverejectstatus], 
+[CorrItem].[corritemdescription] AS [corritemdescription], 
+[CorrItem].[approverid] AS [approverid], 
+[CorrItem].[status] AS [status], 
+[CorrItem].[hascurrentrecommendation] AS [hascurrentrecommendation], 
+[CorrItem].[hascurrentapproval] AS [hascurrentapproval], 
+[CorrItem].[amtrecommended] AS [amtrecommended], 
+[CorrItem].[DateCreated] AS [DateCreated]
+FROM [dbo].[CorrItem] AS [CorrItem]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CorrespondenceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Correspondence">
+          <Key>
+            <PropertyRef Name="correspondenceid" />
+            <PropertyRef Name="awardnum" />
+            <PropertyRef Name="grantyear" />
+            <PropertyRef Name="announcementnum" />
+            <PropertyRef Name="completed" />
+            <PropertyRef Name="IsResearch" />
+          </Key>
+          <Property Name="correspondenceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="correspondencetypeid" Type="Int32" />
+          <Property Name="awardnum" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="grantyear" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="announcementnum" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="grantspecialistid" Type="Int32" />
+          <Property Name="grantsmgmtofficerid" Type="Int32" />
+          <Property Name="projectofficer" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="amountrequested" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="dateentered" Type="DateTime" Precision="3" />
+          <Property Name="dateofgranteeletter" Type="DateTime" Precision="3" />
+          <Property Name="datereceivedpgo" Type="DateTime" Precision="3" />
+          <Property Name="datereceiveddiv" Type="DateTime" Precision="3" />
+          <Property Name="dateduefromdiv" Type="DateTime" Precision="3" />
+          <Property Name="datecompleted" Type="DateTime" Precision="3" />
+          <Property Name="dateofresponsetograntee" Type="DateTime" Precision="3" />
+          <Property Name="completed" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="C15daytarget" Type="DateTime" Precision="3" />
+          <Property Name="C30daytarget" Type="DateTime" Precision="3" />
+          <Property Name="cioid" Type="Int32" />
+          <Property Name="divisionid" Type="Int32" />
+          <Property Name="granteename" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="archived" Type="Boolean" />
+          <Property Name="LeadBranchID" Type="Int32" />
+          <Property Name="DateRoutedHolder" Type="DateTime" Precision="0" />
+          <Property Name="IsResearch" Type="Boolean" Nullable="false" />
+          <Property Name="DateDueToPGO" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CorrespondenceType">
+          <Key>
+            <PropertyRef Name="correspondencetypeid" />
+            <PropertyRef Name="description" />
+            <PropertyRef Name="pgoonly" />
+          </Key>
+          <Property Name="correspondencetypeid" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pgoonly" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CorrItem">
+          <Key>
+            <PropertyRef Name="corritemid" />
+            <PropertyRef Name="correspondenceid" />
+            <PropertyRef Name="correspondencetypeid" />
+            <PropertyRef Name="responserequired" />
+            <PropertyRef Name="hascurrentrecommendation" />
+            <PropertyRef Name="hascurrentapproval" />
+          </Key>
+          <Property Name="corritemid" Type="Int32" Nullable="false" />
+          <Property Name="correspondenceid" Type="Int32" Nullable="false" />
+          <Property Name="correspondencetypeid" Type="Int32" Nullable="false" />
+          <Property Name="responsiblebranchid" Type="Int32" />
+          <Property Name="branchcontact" Type="Int32" />
+          <Property Name="amtreq1" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="responserequired" Type="Boolean" Nullable="false" />
+          <Property Name="approverejectstatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="corritemdescription" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="approverid" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="hascurrentrecommendation" Type="Boolean" Nullable="false" />
+          <Property Name="hascurrentapproval" Type="Boolean" Nullable="false" />
+          <Property Name="amtrecommended" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="CorrespondenceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Correspondence" EntityType="Self.Correspondence" />
+          <EntitySet Name="CorrespondenceType" EntityType="Self.CorrespondenceType" />
+          <EntitySet Name="CorrItem" EntityType="Self.CorrItem" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CorrespondenceModelStoreContainer" CdmEntityContainer="CorrespondenceEntities">
+          <EntitySetMapping Name="Correspondence">
+            <EntityTypeMapping TypeName="CorrespondenceModel.Correspondence">
+              <MappingFragment StoreEntitySet="Correspondence">
+                <ScalarProperty Name="correspondenceid" ColumnName="correspondenceid" />
+                <ScalarProperty Name="correspondencetypeid" ColumnName="correspondencetypeid" />
+                <ScalarProperty Name="awardnum" ColumnName="awardnum" />
+                <ScalarProperty Name="grantyear" ColumnName="grantyear" />
+                <ScalarProperty Name="announcementnum" ColumnName="announcementnum" />
+                <ScalarProperty Name="grantspecialistid" ColumnName="grantspecialistid" />
+                <ScalarProperty Name="grantsmgmtofficerid" ColumnName="grantsmgmtofficerid" />
+                <ScalarProperty Name="projectofficer" ColumnName="projectofficer" />
+                <ScalarProperty Name="amountrequested" ColumnName="amountrequested" />
+                <ScalarProperty Name="dateentered" ColumnName="dateentered" />
+                <ScalarProperty Name="dateofgranteeletter" ColumnName="dateofgranteeletter" />
+                <ScalarProperty Name="datereceivedpgo" ColumnName="datereceivedpgo" />
+                <ScalarProperty Name="datereceiveddiv" ColumnName="datereceiveddiv" />
+                <ScalarProperty Name="dateduefromdiv" ColumnName="dateduefromdiv" />
+                <ScalarProperty Name="datecompleted" ColumnName="datecompleted" />
+                <ScalarProperty Name="dateofresponsetograntee" ColumnName="dateofresponsetograntee" />
+                <ScalarProperty Name="completed" ColumnName="completed" />
+                <ScalarProperty Name="C15daytarget" ColumnName="15daytarget" />
+                <ScalarProperty Name="C30daytarget" ColumnName="30daytarget" />
+                <ScalarProperty Name="cioid" ColumnName="cioid" />
+                <ScalarProperty Name="divisionid" ColumnName="divisionid" />
+                <ScalarProperty Name="granteename" ColumnName="granteename" />
+                <ScalarProperty Name="archived" ColumnName="archived" />
+                <ScalarProperty Name="LeadBranchID" ColumnName="LeadBranchID" />
+                <ScalarProperty Name="DateRoutedHolder" ColumnName="DateRoutedHolder" />
+                <ScalarProperty Name="IsResearch" ColumnName="IsResearch" />
+                <ScalarProperty Name="DateDueToPGO" ColumnName="DateDueToPGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CorrespondenceType">
+            <EntityTypeMapping TypeName="CorrespondenceModel.CorrespondenceType">
+              <MappingFragment StoreEntitySet="CorrespondenceType">
+                <ScalarProperty Name="correspondencetypeid" ColumnName="correspondencetypeid" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="pgoonly" ColumnName="pgoonly" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CorrItem">
+            <EntityTypeMapping TypeName="CorrespondenceModel.CorrItem">
+              <MappingFragment StoreEntitySet="CorrItem">
+                <ScalarProperty Name="corritemid" ColumnName="corritemid" />
+                <ScalarProperty Name="correspondenceid" ColumnName="correspondenceid" />
+                <ScalarProperty Name="correspondencetypeid" ColumnName="correspondencetypeid" />
+                <ScalarProperty Name="responsiblebranchid" ColumnName="responsiblebranchid" />
+                <ScalarProperty Name="branchcontact" ColumnName="branchcontact" />
+                <ScalarProperty Name="amtreq1" ColumnName="amtreq1" />
+                <ScalarProperty Name="responserequired" ColumnName="responserequired" />
+                <ScalarProperty Name="approverejectstatus" ColumnName="approverejectstatus" />
+                <ScalarProperty Name="corritemdescription" ColumnName="corritemdescription" />
+                <ScalarProperty Name="approverid" ColumnName="approverid" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="hascurrentrecommendation" ColumnName="hascurrentrecommendation" />
+                <ScalarProperty Name="hascurrentapproval" ColumnName="hascurrentapproval" />
+                <ScalarProperty Name="amtrecommended" ColumnName="amtrecommended" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
